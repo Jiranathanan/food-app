@@ -2,10 +2,15 @@ import React from "react";
 import { View, TextInput, StyleSheet } from 'react-native';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 
-const SearchBar = () => {
+const SearchBar = ({ term, onTermChange }) => {
     return <View style={styles.background}>
             <EvilIcons name="search" style={styles.iconStyle} />
-            <TextInput placeholder="Search" style={styles.inputStyle} />
+            <TextInput 
+                placeholder="Search" 
+                style={styles.inputStyle} 
+                value={term}
+                onChangeText={newTerm => onTermChange(newTerm)}
+                />
     </View>
 }
 
