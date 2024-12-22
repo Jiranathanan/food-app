@@ -6,7 +6,11 @@ const SearchScreen = () => {
     const [term, setTerm] = useState('');
 
     return <View >
-        <SearchBar term={term} onTermChange={newTerm => setTerm(newTerm)} />
+        <SearchBar 
+            term={term} 
+            onTermChange={newTerm => setTerm(newTerm)} 
+            onTermSubmit={() => console.log('term was submitted')}
+            />
         <Text style={{ marginLeft: 40}}>
                 {term.length > 0 
                     ? <>You are searching for <Text style={styles.termStyle}>{term}</Text></>
