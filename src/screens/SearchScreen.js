@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from 'react-native';
 import SearchBar from "../components/SearchBar";
+import { YELP_API_KEY } from '@env';
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('');
 
     return <View >
+        <Text>{YELP_API_KEY}</Text>
         <SearchBar 
             term={term} 
             onTermChange={newTerm => setTerm(newTerm)} 
