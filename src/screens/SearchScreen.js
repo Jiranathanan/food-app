@@ -12,6 +12,12 @@ const SearchScreen = () => {
 
     // console.log(results[0].price);
     // results.forEach(result => console.log(result.price) )
+    const filterResultsByPrice = (price) => {
+        // price === '$' || '$$' || '$$$'
+        return results.filter( result => {
+            return result.price === price;
+        })
+    }
 
     return <View >
         {/* <Text> API KEY IS: {YELP_API_KEY}</Text> */}
@@ -28,9 +34,9 @@ const SearchScreen = () => {
         </Text>
         {errorMessage ? <Text style={{color: 'purple', marginLeft: 20}}>{errorMessage}</Text> : null}
         {results.length > 0 ? <Text style={{ marginLeft: 40 }}>We have found {results.length} results</Text> : null}
-        <ResultsList title="Cost Effective" />
-        <ResultsList title="Bit Pricier" />
-        <ResultsList title="Big spender" />
+        <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} />
+        <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} />
+        <ResultsList title="Big spender" results={filterResultsByPrice('$$$')} />
     </View>
 }
 
