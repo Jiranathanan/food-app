@@ -4,10 +4,14 @@ import SearchBar from "../components/SearchBar";
 // import { YELP_API_KEY } from '@env';
 import yelp from "../api/yelp";
 import useResults from "../hooks/useResults";
+import ResultsList from "../components/ResultsList";
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('');
     const [searchApi, results, errorMessage] = useResults();
+
+    // console.log(results[0].price);
+    // results.forEach(result => console.log(result.price) )
 
     return <View >
         {/* <Text> API KEY IS: {YELP_API_KEY}</Text> */}
@@ -24,6 +28,9 @@ const SearchScreen = () => {
         </Text>
         {errorMessage ? <Text style={{color: 'purple', marginLeft: 20}}>{errorMessage}</Text> : null}
         {results.length > 0 ? <Text style={{ marginLeft: 40 }}>We have found {results.length} results</Text> : null}
+        <ResultsList title="Cost Effective" />
+        <ResultsList title="Bit Pricier" />
+        <ResultsList title="Big spender" />
     </View>
 }
 
