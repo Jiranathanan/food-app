@@ -33,7 +33,7 @@ const SearchScreen = () => {
                 }
         </Text>
         {errorMessage ? <Text style={{color: 'purple', marginLeft: 20}}>{errorMessage}</Text> : null}
-        {results.length > 0 ? <Text style={{ marginLeft: 40 }}>We have found {results.length} results</Text> : null}
+        {results.length > 0 ? <Text style={{ marginLeft: 15, marginBottom: 10 }}>We have found {results.length} results</Text> : null}
         <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} />
         <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} />
         <ResultsList title="Big spender" results={filterResultsByPrice('$$$')} />

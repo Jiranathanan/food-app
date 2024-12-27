@@ -23,9 +23,9 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         backgroundColor: 'rgba(231, 228, 228, 0.95)',
         height: 50,
-        width: '88%', 
+        // width: '88%', 
         borderRadius: 5,
-        marginHorizontal:'auto',
+        marginHorizontal: 15,
         marginTop: 18 
     },
     iconStyle: {

@@ -2,15 +2,36 @@ import React from "react";
 import { Text, View, StyleSheet, Image } from 'react-native';
 
 const ResultsDetail = ({ result }) => {
-    return <View>
+    return <View style={styles.container}>
                 <Image 
-                    style={{ width: 160, height: 90, marginTop: 1, paddingHorizontal: 1}}
+                    style={ styles.image}
                     source={{ uri: result.image_url}} />
-                <Text>{result.name}</Text>
-                <Text>Rating: {result.rating}</Text>
+                <Text style={styles.name}>{result.name}</Text>
+                <Text>Rating: {result.rating} Stars, ({result.review_count})</Text>
             </View>
 }
 
-const  styles = StyleSheet.create({});
+const  styles = StyleSheet.create({
+        container: {
+            marginLeft: 15,
+            marginTop: 4, 
+            width: 250, 
+            // flexDirection: 'row',
+            // justifyContent: 'center', 
+            // alignItems: 'center' 
+        },
+        image: {
+            width: 250, 
+            height: 120, 
+            marginTop: 1, 
+            paddingHorizontal: 1,
+            borderRadius: 4,
+            marginBottom: 5
+        },
+        name: {
+            fontWeight: 'bold',
+            fontSize: 16
+        }
+});
 
 export default ResultsDetail;
