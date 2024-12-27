@@ -36,3 +36,9 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# Ignore vim backup files
+*~
+
+# Other common ignores
+.DS_Store
