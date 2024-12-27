@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         // width: '88%', 
         borderRadius: 5,
         marginHorizontal: 15,
-        marginTop: 18 
+        marginTop: 18 ,
     },
     iconStyle: {
         fontSize: 40,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         marginVertical: 'auto',
         marginLeft: 14,
         fontSize: 18,
-        flex: 1
+        flex: 1,
     }
 });
 

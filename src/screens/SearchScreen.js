@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from "../components/SearchBar";
 // import { YELP_API_KEY } from '@env';
 import yelp from "../api/yelp";
@@ -18,26 +18,25 @@ const SearchScreen = () => {
             return result.price === price;
         })
     }
-
-    return <View >
+    // Add Flex: 1 into Container View to fix scrollview issue on Android
+    return (
+    <View style={{ flex: 1 }}>
         {/* <Text> API KEY IS: {YELP_API_KEY}</Text> */}
         <SearchBar 
             term={term} 
             onTermChange={newTerm => setTerm(newTerm)} 
             onTermSubmit={() => searchApi(term)}
             />
-        <Text style={{ marginLeft: 40}}>
-                {term.length > 0 
-                    ? <>You are searching for <Text style={styles.termStyle}>{term}</Text></>
-                    : null
-                }
-        </Text>
         {errorMessage ? <Text style={{color: 'purple', marginLeft: 20}}>{errorMessage}</Text> : null}
-        {results.length > 0 ? <Text style={{ marginLeft: 15, marginBottom: 10 }}>We have found {results.length} results</Text> : null}
-        <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} />
-        <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} />
-        <ResultsList title="Big spender" results={filterResultsByPrice('$$$')} />
+        {results.length > 0 ? <Text style={{ fontStyle: 'italic', fontSize: 12, marginLeft: 15, marginBottom: 2 }}>We have found {results.length} results</Text> : null}
+        <ScrollView>
+            <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} />
+            <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} />
+            <ResultsList title="Big spender" results={filterResultsByPrice('$$$')} />
+            <ResultsList title="Supreme" results={filterResultsByPrice('$$')} />
+        </ScrollView>
     </View>
+    )
 }
 
 const styles = StyleSheet.create({
