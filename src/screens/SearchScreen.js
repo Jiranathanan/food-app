@@ -28,7 +28,6 @@ const SearchScreen = () => {
             onTermSubmit={() => searchApi(term)}
             />
         {errorMessage ? <Text style={{color: 'purple', marginLeft: 20}}>{errorMessage}</Text> : null}
-        {results.length > 0 ? <Text style={{ fontStyle: 'italic', fontSize: 12, marginLeft: 15, marginBottom: 2 }}>We have found {results.length} results</Text> : null}
         <ScrollView>
             <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} />
             <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} />
