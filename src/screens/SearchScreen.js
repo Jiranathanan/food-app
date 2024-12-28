@@ -18,9 +18,9 @@ const SearchScreen = () => {
             return result.price === price;
         })
     }
-    // Add Flex: 1 into Container View to fix scrollview issue on Android
+    // Add Flex: 1 into Container View to fix ScrollView issue on Android
     return (
-    <View style={{ flex: 1 }}>
+    <>
         {/* <Text> API KEY IS: {YELP_API_KEY}</Text> */}
         <SearchBar 
             term={term} 
@@ -35,7 +35,7 @@ const SearchScreen = () => {
             <ResultsList title="Big spender" results={filterResultsByPrice('$$$')} />
             <ResultsList title="Supreme" results={filterResultsByPrice('$$')} />
         </ScrollView>
-    </View>
+    </>
     )
 }
 
